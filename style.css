@@ -1,0 +1,864 @@
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Nosifer&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kablammo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Kablammo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Griffy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+@keyframes dropAndBounce {
+  0% {
+    transform: translateY(-100vh); /* Start above the viewport */
+    opacity: 0; /* Start invisible */
+  }
+  50% {
+    opacity: 1; /* Become visible halfway through */
+    transform: translateY(-30px); /* Drop slightly above the final position */
+  }
+  70% {
+    transform: translateY(0); /* Move to original position */
+  }
+  100% {
+    transform: translateY(0); /* End at original position */
+  }
+}
+
+@keyframes continuousBounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); /* Start and end at original position */
+  }
+  40% {
+    transform: translateY(-30px); /* Bounce up */
+  }
+  60% {
+    transform: translateY(-15px); /* Bounce down */
+  }
+}
+
+.text-display h1:first-of-type {
+  position: absolute;
+  font-family: "Nosifer", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  top: 9%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255);
+  font-size: 7em;
+  animation: dropAndBounce 1s ease forwards, continuousBounce 1s ease 5s infinite; /* Apply the animations */
+}
+
+.text-display h2 {
+  position: absolute;
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  top: 36%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255);
+  font-size: 5em;
+  animation: dropAndBounce 1s ease forwards, continuousBounce 1s ease 5s infinite; /* Apply the animations */
+  animation-delay: 0.2s; /* Delay for effect */
+}
+
+.text-display h1:nth-of-type(2) {
+  font-size: 8em;
+  color: #fcefbb;
+  position: absolute;
+  top: 31%;
+  left: 55%;
+  font-family: "Kablammo", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  animation: dropAndBounce 1s ease forwards, continuousBounce 1s ease 5s infinite; /* Apply the animations */
+  animation-delay: 0.4s; /* Longer delay for effect */
+}
+
+.text-display h3 {
+  font-size: 2em;
+  color: #ffffff;
+  font-family: "Caveat", cursive;
+  font-weight: 400;
+  font-style: normal;
+  position: absolute;
+  top: 52%;
+  right: 29%;
+  animation: dropAndBounce 1s ease forwards, continuousBounce 1s ease 5s infinite; /* Apply the animations */
+  animation-delay: 0.6s; /* Longer delay for effect */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+body, html {
+  height: 200vh; /* Add height to create a scrollable page */
+  overflow-x: hidden; /* Disable horizontal scrolling */
+}
+
+.top-section {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Adjust height as needed */
+  background-image: url('bg1.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.house {
+  position: absolute;
+  top: 39%; /* Adjust as needed */
+  left: 2%; /* Adjust as needed */
+  width: 230px; /* Adjust size as needed */
+  height: 235px; /* Adjust size as needed */
+  background: url('house.png') no-repeat center center;
+  background-size: contain;
+  opacity: 0;
+  transform: scale(0) translate(-50%, -50%);
+  animation: slide-in 1.2s ease-in-out forwards;
+}
+
+@keyframes slide-in {
+  0% {
+      opacity: 0;
+      transform: translateX(-100%); /* Start offscreen to the left */
+  }
+  50% {
+      opacity: 1;
+      transform: translateX(10%); /* Move a bit extra to the right */
+  }
+  100% {
+      opacity: 1;
+      transform: translateX(0); /* Settle at the final position */
+  }
+}
+
+.grass {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 40.05cm; /* Adjust width as needed */
+  height: 100cm; /* Adjust height as needed */
+  background: url('grass1.png') no-repeat center bottom;
+  background-size: contain;
+  transform: translate(-50%, 100%);
+  animation: swipe-up 1.5s ease-in-out forwards;
+  z-index: 1; /* Ensure the grass is above the pumpkin */
+}
+
+@keyframes swipe-up {
+  0% {
+      transform: translate(-50%, 100%);
+  }
+  100% {
+      transform: translate(-50%, 0);
+  }
+}
+
+.pumpkin {
+  position: absolute;
+  bottom: 4%;
+  left: 55%;
+  width: 29cm; /* Adjust width as needed */
+  height: 29cm; /* Adjust height as needed */
+  background: url('pumpkin.png') no-repeat center bottom;
+  background-size: contain;
+  transform: translate(-50%, 100%);
+  animation: swipe-up 1.5s ease-in-out forwards;
+  animation-delay: 0.5s;
+  z-index: 0; /* Ensure the grass is above the pumpkin */
+}
+
+@keyframes swipe-up {
+  0% {
+      transform: translate(-50%, 100%);
+  }
+  100% {
+      transform: translate(-50%, 0);
+  }
+}
+
+.eye {
+  position: absolute;
+  top: 15%; /* Adjust as needed to position it above the grass */
+  left: 8%;
+  width: 30cm; /* Adjust size as needed */
+  height: 30cm; /* Adjust size as needed */
+  background: url('eye.png') no-repeat center center;
+  background-size: contain;
+  animation: blink 1.5s infinite; /* Infinite loop for blinking */
+  z-index: 2; /* Ensure it appears above the grass and pumpkin */
+  opacity: 0;
+  animation: fade-in 0.5s ease-in-out forwards 3s, blink 1.5s infinite 3s; /* Fade-in with delay and then start blinking */
+  z-index: 2; /* Ensure it appears above the grass and pumpkin */
+}
+
+@keyframes fade-in {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+      opacity: 1; /* Fully visible */
+  }
+  50% {
+      opacity: 0; /* Fully hidden */
+  }
+}
+
+.moon {
+  position: absolute;
+  bottom: 53%; /* Start way above the visible area */
+  right: 70%; /* Adjust as needed */
+  width: 480px; /* Adjust size as needed */
+  height: 480px; /* Adjust size as needed */
+  background: url('moon.png') no-repeat center center;
+  background-size: contain;
+  opacity: 0;
+  animation: slide-down 1s ease-in-out forwards;
+  animation-delay: 2s;
+}
+
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-80%); /* Start from above the screen */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at normal position */
+  }
+}
+
+.bat1 {
+  position: absolute;
+  top:35%; /* Adjust as needed to position it in the top section */
+  left: 9%; /* Center the bats horizontally */
+  transform: translateX(-50%); /* Centering adjustment */
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+  background: url('bat1.gif') no-repeat center center; /* Replace with your bats GIF */
+  background-size: contain;
+  opacity: 0;
+  animation: fade-in-bats 0.5s ease-in-out forwards;
+  animation-delay: 2s; /* Delay to match the other animations */
+}
+
+@keyframes fade-in-bats {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.bat2 {
+  position: absolute;
+  top:39%; /* Adjust as needed to position it in the top section */
+  left: 15%; /* Center the bats horizontally */
+  transform: translateX(-20%); /* Centering adjustment */
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+  background: url('bat1.gif') no-repeat center center; /* Replace with your bats GIF */
+  background-size: contain;
+  opacity: 0;
+  animation: fade-in-bats 0.5s ease-in-out forwards;
+  animation-delay: 2s; /* Delay to match the other animations */
+}
+
+@keyframes fade-in-bats {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.witch {
+  position: absolute;
+  top: 10%; /* Adjust as needed to position it vertically */
+  left: -5%; /* Start off the left side of the screen */
+  width: 80px; /* Adjust size as needed */
+  height: 80px; /* Adjust size as needed */
+  background: url('witch.gif') no-repeat center center;
+  background-size: contain;
+  transform: scaleX(-1); /* Flip the witch horizontally */
+  animation: fly-across 10s linear infinite; /* 5 seconds for flying + 5 seconds for pause */
+  animation-delay: 5s;
+  z-index: 1;
+}
+
+@keyframes fly-across {
+  0% {
+    left: -10%; /* Start off the left side of the screen */
+  }
+  50% {
+    left: 110%; /* Fly to the right side of the screen in 5 seconds */
+  }
+  100% {
+    left: 110%; /* Stay at the right side for the next 5 seconds (pause) */
+  }
+}
+
+.middle-section {
+  position: relative;
+
+  background-color: black; /* Set background color to black */
+  color: white; /* Set text color to white for contrast */
+  padding: 50px; /* Add some padding for spacing */
+  text-align: center; /* Center-align the text */
+  min-height: 100vh; /* Ensure it takes at least full viewport height */
+  transition: opacity 0.5s; /* Transition for fade effect */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+  
+}
+
+.witch2 {
+    position: absolute;
+    top: 40%; /* Adjusted to prevent overlap */
+    left: 40%; /* Center horizontally */
+    width: 50vh; /* Adjust size as needed */
+    height: 50vh; /* Adjust size as needed */
+    background: url('witch2.gif') no-repeat center center;
+    background-size: contain;
+    z-index: 1;
+}
+
+.skull-fire1 {
+    position: absolute;
+    top: 50%; /* Adjusted to position below the witch */
+    left: 15%; /* Adjust as needed */
+    width: 61vh; /* Adjust size as needed */
+    height: 61vh; /* Adjust size as needed */
+    background: url('skull-fire1.gif') no-repeat center center;
+    background-size: contain;
+    z-index: 1;
+    
+}
+
+.circle1 {
+  width: 55px; /* Set the width of the circle */
+  height: 55px; /* Set the height of the circle */
+  background-color: rgb(0, 0, 0); /* Set the background color */
+  border-radius: 50%; /* This makes the div a circle */
+  display: flex; /* Optional: to center content inside */
+  justify-content: center; /* Optional: to center content inside */
+  align-items: center; /* Optional: to center content inside */
+  color: white; /* Text color (if any) */
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.5); /* Full white glow effect */
+  position: absolute; /* Position the circle absolutely */
+  bottom: 18%; /* Distance from the top of the viewport */
+  left: 28.3%; /* Distance from the left of the viewport */
+}
+
+.skull-fire2 {
+  position: absolute;
+  top: 50%; /* Adjusted to position below the witch */
+  right: 10%; /* Adjust as needed */
+  width: 61vh; /* Adjust size as needed */
+  height: 61vh; /* Adjust size as needed */
+  background: url('skull-fire2.gif') no-repeat center center;
+  background-size: contain;
+  z-index: 1;
+  transform: scaleX(-1);
+}
+
+.circle2 {
+width: 55px; /* Set the width of the circle */
+height: 55px; /* Set the height of the circle */
+background-color: rgb(0, 0, 0); /* Set the background color */
+border-radius: 50%; /* This makes the div a circle */
+display: flex; /* Optional: to center content inside */
+justify-content: center; /* Optional: to center content inside */
+align-items: center; /* Optional: to center content inside */
+color: white; /* Text color (if any) */
+box-shadow: 0 0 50px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.5); /* Full white glow effect */
+position: absolute; /* Position the circle absolutely */
+bottom: 18%; /* Distance from the top of the viewport */
+right: 23%; /* Distance from the left of the viewport */
+}
+
+.skull-fire3 {
+  position: absolute;
+  top: 18%; /* Adjusted to position below the witch */
+  right: 15.7%; /* Adjust as needed */
+  width: 61vh; /* Adjust size as needed */
+  height: 61vh; /* Adjust size as needed */
+  background: url('skull-fire3.gif') no-repeat center center;
+  background-size: contain;
+  z-index: 1;
+  transform: scaleX(-1);
+}
+
+.circle3 {
+width: 52px; /* Set the width of the circle */
+height: 52px; /* Set the height of the circle */
+background-color: rgb(0, 0, 0); /* Set the background color */
+border-radius: 50%; /* This makes the div a circle */
+display: flex; /* Optional: to center content inside */
+justify-content: center; /* Optional: to center content inside */
+align-items: center; /* Optional: to center content inside */
+color: white; /* Text color (if any) */
+box-shadow: 0 0 50px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.5); /* Full white glow effect */
+position: absolute; /* Position the circle absolutely */
+bottom: 50%; /* Distance from the top of the viewport */
+right: 29%; /* Distance from the left of the viewport */
+}
+
+.skull-fire4 {
+  position: absolute;
+  top: 19%; /* Adjusted to position below the witch */
+  left: 19%; /* Adjust as needed */
+  width: 59vh; /* Adjust size as needed */
+  height: 59vh; /* Adjust size as needed */
+  background: url('skull-fire1.gif') no-repeat center center;
+  background-size: contain;
+  z-index: 1;
+  
+}
+
+.circle4 {
+  width: 52px; /* Set the width of the circle */
+  height: 52px; /* Set the height of the circle */
+  background-color: rgb(0, 0, 0); /* Set the background color */
+  border-radius: 50%; /* This makes the div a circle */
+  display: flex; /* Optional: to center content inside */
+  justify-content: center; /* Optional: to center content inside */
+  align-items: center; /* Optional: to center content inside */
+  color: white; /* Text color (if any) */
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.5); /* Full white glow effect */
+  position: absolute; /* Position the circle absolutely */
+  bottom: 50%; /* Distance from the top of the viewport */
+  left: 32% /* Distance from the left of the viewport */
+}
+
+.moon2 {
+  position: absolute;
+  top: 14%; /* Adjusted to position below the witch */
+  left: 10%; /* Adjust as needed */
+  width: 20vh; /* Adjust size as needed */
+  height: 20vh; /* Adjust size as needed */
+  background: url('moon2.gif') no-repeat center center;
+  background-size: contain;
+  z-index: 0;
+}
+
+.circle5{
+  width: 100px; /* Set the width of the circle */
+  height: 12px; /* Set the height of the circle */
+  background-color: rgb(0, 0, 0); /* Set the background color */
+  border-radius: 50%; /* This makes the div a circle */
+  display: flex; /* Optional: to center content inside */
+  justify-content: center; /* Optional: to center content inside */
+  align-items: center; /* Optional: to center content inside */
+  color: white; /* Text color (if any) */
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.5); /* Full white glow effect */
+  position: absolute; /* Position the circle absolutely */
+  bottom: 32%; /* Distance from the top of the viewport */
+  left: 45%; /* Distance from the left of the viewport */
+  z-index: 0;
+  
+}
+
+.cat {
+  position: absolute;
+  top: 50%; /* Adjusted to position below the witch */
+  right: 75%; /* Adjust as needed */
+  width: 50vh; /* Adjust size as needed */
+  height: 50vh; /* Adjust size as needed */
+  background: url('cat.gif') no-repeat center center;
+  background-size: contain;
+  z-index: 1;
+  transform: scaleX(-1);
+}
+
+#text-display {
+  position: absolute; /* Position it absolutely within the middle section */
+  top: 100px; /* Adjust as necessary */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for centering */
+  color: white; /* Text color */
+  font-size: 24px; /* Font size */
+  text-align: center; /* Center the text */
+  z-index: 2; /* Ensure it appears above other elements */
+  opacity: 1; /* Fully visible */
+  transition: opacity 1s ease; /* Transition for fade effect */
+  font-size: 1em;
+
+  font-family: "Griffy", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.last-section{
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Adjust height as needed */
+  background-image: url('bg2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.eye2 {
+  position: absolute;
+  bottom: 52%; /* Adjust as needed to position it above the grass */
+  left: 8%;
+  width: 35cm; /* Adjust size as needed */
+  height: 15cm; /* Adjust size as needed */
+  background: url('eye2.png') no-repeat center center;
+  background-size: contain;
+  animation: blink 1.5s infinite; /* Infinite loop for blinking */
+  z-index: 2; /* Ensure it appears above the grass and pumpkin */
+  opacity: 0;
+  animation: fade-in 0.5s ease-in-out forwards 3s, blink 1.5s infinite 3s; /* Fade-in with delay and then start blinking */
+  z-index: 2; /* Ensure it appears above the grass and pumpkin */
+}
+
+.spider{
+  position: absolute;
+  bottom: 10%; /* Adjust as needed to position it above the grass */
+  left: 5%;
+  width: 3cm; /* Adjust size as needed */
+  height: 3cm; /* Adjust size as needed */
+  background: url('spider.png') no-repeat center center;
+  background-size: contain; 
+  animation: dropAndBounce1 1s ease forwards, continuousBounce1 1s ease 5s infinite; /* Apply the animations */
+  animation-delay: 0.6s; /* Longer delay for effect */
+}
+
+@keyframes dropAndBounce1 {
+  0% {
+    transform: translateY(-100vh); /* Start above the viewport */
+    opacity: 0; /* Start invisible */
+  }
+  50% {
+    opacity: 1; /* Become visible halfway through */
+    transform: translateY(-30px); /* Drop slightly above the final position */
+  }
+  70% {
+    transform: translateY(0); /* Move to original position */
+  }
+  100% {
+    transform: translateY(0); /* End at original position */
+  }
+}
+
+@keyframes continuousBounce1 {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); /* Start and end at original position */
+  }
+  40% {
+    transform: translateY(-30px); /* Bounce up */
+  }
+  60% {
+    transform: translateY(-15px); /* Bounce down */
+  }
+}
+
+.broom{
+  position: absolute;
+  bottom: 15%; /* Adjust as needed to position it above the grass */
+  left: 20%;
+  width: 7cm; /* Adjust size as needed */
+  height: 7cm; /* Adjust size as needed */
+  background: url('broom.png') no-repeat center center;
+  background-size: contain; 
+  animation: fly-across1 10s linear infinite; /* 5 seconds for flying + 5 seconds for pause */
+  z-index: 1;
+}
+
+@keyframes fly-across1 {
+  0% {
+    left: -10%; /* Start off the left side of the screen */
+  }
+  50% {
+    left: 110%; /* Fly to the right side of the screen in 5 seconds */
+  }
+  100% {
+    left: 110%; /* Stay at the right side for the next 5 seconds (pause) */
+  }
+}
+
+.table{
+  position: absolute;
+  bottom: 10%; /* Adjust as needed to position it above the grass */
+  left: 40%;
+  width: 7cm; /* Adjust size as needed */
+  height: 7cm; /* Adjust size as needed */
+  background: url('table.png') no-repeat center center;
+  background-size: contain; 
+}
+
+.dish{
+  position: absolute;
+  bottom: 30%; /* Adjust as needed to position it above the grass */
+  left: 43%;
+  width: 3cm; /* Adjust size as needed */
+  height: 3cm; /* Adjust size as needed */
+  background: url('dish.png') no-repeat center center;
+  background-size: contain; 
+  animation: dropAndBounce2 1s ease forwards, continuousBounce2 1s ease 5s infinite; /* Apply the animations */
+  animation-delay: 0.8s; /* Longer delay for effect */
+}
+
+@keyframes dropAndBounce2 {
+  0% {
+    transform: translateY(-100vh); /* Start above the viewport */
+    opacity: 0; /* Start invisible */
+  }
+  50% {
+    opacity: 1; /* Become visible halfway through */
+    transform: translateY(-30px); /* Drop slightly above the final position */
+  }
+  70% {
+    transform: translateY(0); /* Move to original position */
+  }
+  100% {
+    transform: translateY(0); /* End at original position */
+  }
+}
+
+@keyframes continuousBounce2 {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); /* Start and end at original position */
+  }
+  40% {
+    transform: translateY(-30px); /* Bounce up */
+  }
+  60% {
+    transform: translateY(-15px); /* Bounce down */
+  }
+}
+
+.coffin{
+  position: absolute;
+  bottom: 22%; /* Adjust as needed to position it above the grass */
+  left: 22%;
+  width: 6cm; /* Adjust size as needed */
+  height: 6cm; /* Adjust size as needed */
+  background: url('coffin.png') no-repeat center center;
+  background-size: contain; 
+  animation: dropAndBounce3 1s ease forwards, continuousBounce3 1s ease 5s infinite; /* Apply the animations */
+  animation-delay: 0.11s; /* Longer delay for effect */
+}
+
+@keyframes dropAndBounce3 {
+  0% {
+    transform: translateY(-100vh); /* Start above the viewport */
+    opacity: 0; /* Start invisible */
+  }
+  50% {
+    opacity: 1; /* Become visible halfway through */
+    transform: translateY(-30px); /* Drop slightly above the final position */
+  }
+  70% {
+    transform: translateY(0); /* Move to original position */
+  }
+  100% {
+    transform: translateY(0); /* End at original position */
+  }
+}
+
+@keyframes continuousBounce3 {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); /* Start and end at original position */
+  }
+  40% {
+    transform: translateY(-30px); /* Bounce up */
+  }
+  60% {
+    transform: translateY(-15px); /* Bounce down */
+  }
+}
+
+.toys{
+  position: absolute;
+  bottom: 3%; /* Adjust as needed to position it above the grass */
+  right: -1%;
+  width: 10cm; /* Adjust size as needed */
+  height: 10cm; /* Adjust size as needed */
+  background: url('toys.png') no-repeat center center;
+  background-size: contain; 
+  animation: dropAndBounce4 1s ease forwards, continuousBounce4 1s ease 5s infinite; /* Apply the animations */
+  animation-delay: 0.15s; /* Longer delay for effect */
+}
+
+@keyframes dropAndBounce4 {
+  0% {
+    transform: translateY(-100vh); /* Start above the viewport */
+    opacity: 0; /* Start invisible */
+  }
+  50% {
+    opacity: 1; /* Become visible halfway through */
+    transform: translateY(-30px); /* Drop slightly above the final position */
+  }
+  70% {
+    transform: translateY(0); /* Move to original position */
+  }
+  100% {
+    transform: translateY(0); /* End at original position */
+  }
+}
+
+@keyframes continuousBounce4 {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); /* Start and end at original position */
+  }
+  40% {
+    transform: translateY(-30px); /* Bounce up */
+  }
+  60% {
+    transform: translateY(-15px); /* Bounce down */
+  }
+}
+
+.hat{
+  position: absolute;
+  bottom: 22%; /* Adjust as needed to position it above the grass */
+  left: 60%;
+  width: 4cm; /* Adjust size as needed */
+  height: 4cm; /* Adjust size as needed */
+  background: url('hat.png') no-repeat center center;
+  background-size: contain; 
+  animation: dropAndBounce5 1s ease forwards, continuousBounce5 1s ease 5s infinite; /* Apply the animations */
+  animation-delay: 0.22s; /* Longer delay for effect */
+}
+
+@keyframes dropAndBounce5 {
+  0% {
+    transform: translateY(-100vh); /* Start above the viewport */
+    opacity: 0; /* Start invisible */
+  }
+  50% {
+    opacity: 1; /* Become visible halfway through */
+    transform: translateY(-30px); /* Drop slightly above the final position */
+  }
+  70% {
+    transform: translateY(0); /* Move to original position */
+  }
+  100% {
+    transform: translateY(0); /* End at original position */
+  }
+}
+
+@keyframes continuousBounce5 {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); /* Start and end at original position */
+  }
+  40% {
+    transform: translateY(-30px); /* Bounce up */
+  }
+  60% {
+    transform: translateY(-15px); /* Bounce down */
+  }
+}
+
+.skull {
+  position: absolute;
+  bottom: 8%; /* Adjust as needed to position it above the grass */
+  left: 60%;
+  width: 3cm; /* Adjust size as needed */
+  height: 3cm; /* Adjust size as needed */
+  background: url('skull.png') no-repeat center center;
+  background-size: contain; 
+  animation: dropAndBounce6 1s ease forwards, continuousBounce5 1s ease 6s infinite; /* Apply the animations */
+  animation-delay: 0.50s; /* Longer delay for effect */
+}
+
+@keyframes dropAndBounce6 {
+  0% {
+    transform: translateY(-100vh); /* Start above the viewport */
+    opacity: 0; /* Start invisible */
+  }
+  50% {
+    opacity: 1; /* Become visible halfway through */
+    transform: translateY(-30px); /* Drop slightly above the final position */
+  }
+  70% {
+    transform: translateY(0); /* Move to original position */
+  }
+  100% {
+    transform: translateY(0); /* End at original position */
+  }
+}
+
+@keyframes continuousBounce6 {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); /* Start and end at original position */
+  }
+  40% {
+    transform: translateY(-30px); /* Bounce up */
+  }
+  60% {
+    transform: translateY(-15px); /* Bounce down */
+  }
+}
+
+.rules{
+  color:#fcefbb;
+  font-size: 1.3em;
+  font-family: "Play", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  position: absolute;
+  top: 23%;
+  right: 13%;
+  animation: dropAndBounce6 1s ease forwards, continuousBounce5 1s ease 6s infinite; /* Apply the animations */
+  animation-delay: 0.50s; /* Longer delay for effect */
+}
+
+@keyframes dropAndBounce6 {
+  0% {
+    transform: translateY(-100vh); /* Start above the viewport */
+    opacity: 0; /* Start invisible */
+  }
+  50% {
+    opacity: 1; /* Become visible halfway through */
+    transform: translateY(-30px); /* Drop slightly above the final position */
+  }
+  70% {
+    transform: translateY(0); /* Move to original position */
+  }
+  100% {
+    transform: translateY(0); /* End at original position */
+  }
+}
+
+@keyframes continuousBounce6 {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); /* Start and end at original position */
+  }
+  40% {
+    transform: translateY(-30px); /* Bounce up */
+  }
+  60% {
+    transform: translateY(-15px); /* Bounce down */
+  }
+}
+
+.rules ul {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove padding */
+}
+
+.rules li {
+  margin: 10px 0; /* Spacing between list items */
+  font-size: 18px; /* Font size for list items */
+  text-shadow: 1px 1px 50px rgba(0, 0, 0, 0.5); /* Shadow effect for text */
+  transition: text-shadow 0.3s; /* Smooth transition for shadow */
+}
